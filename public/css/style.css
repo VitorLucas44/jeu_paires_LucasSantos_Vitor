@@ -18,6 +18,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    font-size: larger;
 }
 .cards{
     height: 400px;
