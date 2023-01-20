@@ -13,12 +13,12 @@ body{
     justify-content: center;
     min-height: 100vh;
     background: #c81515;
+    flex-direction: column;
 }
 .cards, .card, .view{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     font-size: larger;
 }
 .cards{
@@ -72,6 +72,42 @@ body{
     background: #F8F8F8;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     background-color: #F8F8F8;
+}
+
+.details{
+    width: 100%;
+    border-radius: 7px;
+    display: flex;
+    background: #fff;
+    height: calc(100% / 4 - 30px);
+    justify-content: space-evenly;
+    box-shadow: 0 3px 10px #0000001a;
+  }
+  .details p{
+    font-size: 18px;
+    height: 17px;
+    padding-right: 18px;
+    border-right: 1px solid #ccc;
+  }
+  .details p span{
+    margin-left: 8px;
+  }
+  .details p b{
+    font-weight: 500;
+  }
+  .details button{
+    cursor: pointer;
+    font-size: 14px;
+    color: #6563ff;
+    border-radius: 4px;
+    padding: 4px 11px;
+    background: #fff;
+    border: 2px solid #6563ff;
+    transition: 0.3s ease;
+}
+.details button:hover{
+    color: #fff;
+    background: #6563ff;
 }
 @keyframes shake {
     0%, 100%{
