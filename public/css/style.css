@@ -98,16 +98,31 @@ body{
   .details button{
     cursor: pointer;
     font-size: 14px;
-    color: #6563ff;
+    color: rgb(26, 14, 194);
     border-radius: 4px;
     padding: 4px 11px;
     background: #fff;
-    border: 2px solid #6563ff;
+    border: 2px solid rgb(26, 14, 194);
     transition: 0.3s ease;
 }
 .details button:hover{
     color: #fff;
-    background: #6563ff;
+    background: rgb(26, 14, 194);
+}
+.lancement{
+    margin-bottom: 3%;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+.lancement input{
+    height: 30px;
+    border: 3px solid rgb(26, 14, 194);
+}
+.lancement button{
+    width: 100px;
+    height: 30px;
+    border: 3px solid rgb(26, 14, 194);
 }
 @keyframes shake {
     0%, 100%{
