@@ -7,6 +7,19 @@ const startBtn = document.querySelector("button");
 startBtn.innerText = "Start";
 startBtn.disabled = true;
 
+const gameModeSelect = document.querySelector("#game-mode");
+let gameMode = "normal";
+gameModeSelect.addEventListener("change", (e) => {
+    gameMode = e.target.value;
+});
+
+let numberOfCards;
+if(gameMode === "normal") {
+numberOfCards = 3;
+} else {
+numberOfCards = 8;
+}
+
 nameInput.addEventListener("input", (e) => {
     if (e.target.value) {
         startBtn.disabled = false;
@@ -19,7 +32,7 @@ startBtn.addEventListener("click", (e) => {
     const name = nameInput.value;
     const gameContainer = document.querySelector(".game-container");
     gameContainer.classList.remove("hidden");
-    console.log(`Name: ${name}`);
+    console.log(`Bonne chance ${name}`);
     initGame(name);
 });
 
@@ -48,8 +61,12 @@ let disableDeck = false;
 let isPlaying = false;
 let cardOne, cardTwo, timer;
 
-
-
+let numberOfCards;
+if(gameMode === "normal") {
+numberOfCards = 3;
+} else {
+numberOfCards = 8;
+}
 
 const scoreboard = document.querySelector(".scoreboard tbody");
 let scores = [];
@@ -85,23 +102,22 @@ function flipCard({target: clickedCard}) {
 function matchCards(img1, img2) {
     if(img1 === img2) {
         matchedCard++;
-        if(matchedCard == 8) {
-            scores.push({ name: name, time: maxTime - timeLeft, flips: flips});
+        if(matchedCard == numberOfCards) {
+            scores.push({ name: name, time: maxTime - timeLeft, flips: flips, gameMode: gameMode });
             scores.sort((a, b) => a.time - b.time);
             scoreboard.innerHTML = "";
             scores.forEach(score => {
                 scoreboard.innerHTML += `
                 <tr>
                     <td>${score.name}</td>
-                    <td>${score.time}</td>
+                    <td>${score.time}sec</td>
                     <td>${score.flips}</td>
+                    <td>${score.gameMode}</td>
                 </tr>`;
             });
+            
         }
-        if(matchedCard == 8 && timeLeft > 0) {
-            alert(`Bravo, vous avez réussi`);
-            return clearInterval(timer);
-        }
+        
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";

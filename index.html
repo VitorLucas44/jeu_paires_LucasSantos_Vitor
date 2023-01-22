@@ -2,12 +2,17 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">  
-        <title>JEu de paire</title>
+        <title>MarioPaire</title>
         <link rel="stylesheet" href="./public/css/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 <body>
-    
+    <h1>MarioPaire</h1>
+    <label>Choisir un mode de jeu:</label>
+<select id="game-mode">
+  <option value="normal">Normal</option>
+  <option value="difficult">Difficile</option>
+</select>
     <div class="lancement">
     <input type="Votre Pseudo" placeholder="Votre Pseudo"><button>Lancez le jeu</button>
     </div>
@@ -149,21 +154,20 @@
             </li>
         </ul>
 </div>
-<section class="scoreboard">
-    <h2>Tableau des scores</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Pseudo</th>
-                <th>Temps</th>
-                <th>Nombre de flip</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Ajoutez les lignes du tableau ici -->
-        </tbody>
-    </table>
-</section>
+<table class="scoreboard">
+    <thead>
+      <tr>
+        <th>Pseudo</th>
+        <th>Temps</th>
+        <th>Retournements</th>
+        <th>Mode de jeu</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+  </table>
+  
 </div>
     <script src="./public/js/main.js"></script>
 </body>
