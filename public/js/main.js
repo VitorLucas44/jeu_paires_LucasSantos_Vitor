@@ -15,18 +15,22 @@ nameInput.addEventListener("input", (e) => {
     }
 });
 
+
 // clique sa lance
 startBtn.addEventListener("click", (e) => {
     const name = nameInput.value;
+    const gameContainer = document.querySelector(".game-container");
+    gameContainer.classList.remove("hidden");
+
     // test nom
     console.log(`Name: ${name}`);
     // Start
     initGame(alert(`Bonne chance ${name} !`));
 });
 
-function initGame() {
+function initGame(name) {
 
-    const cards = document.querySelectorAll(".card"),
+const cards = document.querySelectorAll(".card"),
 timeTag = document.querySelector(".time b"),
 flipsTag = document.querySelector(".flips b"),
 refreshBtn = document.querySelector(".details button");
@@ -38,6 +42,12 @@ let matchedCard = 0;
 let disableDeck = false;
 let isPlaying = false;
 let cardOne, cardTwo, timer;
+
+
+
+
+const scoreboard = document.querySelector(".scoreboard tbody");
+let scores = [];
 
 function initTimer() {
     if(timeLeft <= 0) {
@@ -70,6 +80,19 @@ function flipCard({target: clickedCard}) {
 function matchCards(img1, img2) {
     if(img1 === img2) {
         matchedCard++;
+        if(matchedCard == 8) {
+            scores.push({ name: name, time: maxTime - timeLeft, flips: flips});
+            scores.sort((a, b) => a.time - b.time);
+            scoreboard.innerHTML = "";
+            scores.forEach(score => {
+                scoreboard.innerHTML += `
+                <tr>
+                    <td>${score.name}</td>
+                    <td>${score.time}</td>
+                    <td>${score.flips}</td>
+                </tr>`;
+            });
+        }
         if(matchedCard == 8 && timeLeft > 0) {
             alert(`Bravo, vous avez réussi`);
             return clearInterval(timer);

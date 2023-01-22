@@ -7,9 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 <body>
+    
     <div class="lancement">
     <input type="Votre Pseudo" placeholder="Votre Pseudo"><button>Lancez le jeu</button>
     </div>
+    <div class="game-container hidden">
 <div class="wrapper">
     <div class="details">
         <p class="time">Time: <span><b>40</b>s</span></p>
@@ -147,7 +149,22 @@
             </li>
         </ul>
 </div>
-    
+</div>
+<section class="scoreboard">
+    <h2>Tableau des scores</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Temps</th>
+                <th>Nombre de flip</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Ajoutez les lignes du tableau ici -->
+        </tbody>
+    </table>
+</section>
     <script src="./public/js/main.js"></script>
 </body>
 </html>
