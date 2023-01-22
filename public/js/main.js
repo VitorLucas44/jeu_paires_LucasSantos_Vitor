@@ -79,7 +79,14 @@ function initTimer() {
     timeTag.innerText = timeLeft;
 }
 
+let clickCount = 0;
+
 function flipCard({target: clickedCard}) {
+    clickCount++;
+    if (clickCount === 3) {
+        cardOne.style.border = "2px solid red";
+        cardTwo.style.border = "2px solid red";
+    }
     if(!isPlaying) {
         isPlaying = true;
         timer = setInterval(initTimer, 1000);
@@ -103,6 +110,7 @@ function matchCards(img1, img2) {
     if(img1 === img2) {
         matchedCard++;
         if(matchedCard == numberOfCards) {
+            alert(`Bravo, vous avez gagner`)
             scores.push({ name: name, time: maxTime - timeLeft, flips: flips, gameMode: gameMode });
             scores.sort((a, b) => a.time - b.time);
             scoreboard.innerHTML = "";
@@ -115,7 +123,7 @@ function matchCards(img1, img2) {
                     <td>${score.gameMode}</td>
                 </tr>`;
             });
-            
+
         }
         
         cardOne.removeEventListener("click", flipCard);

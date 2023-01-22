@@ -138,6 +138,10 @@ h1{
 #game-mode{
     margin: 1%;
 }
+.match-hint {
+    border: 2px solid red;
+}
+
 @keyframes shake {
     0%, 100%{
         transform: translateX(0);
