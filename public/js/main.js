@@ -15,18 +15,23 @@ nameInput.addEventListener("input", (e) => {
     }
 });
 
-
-// clique sa lance
 startBtn.addEventListener("click", (e) => {
     const name = nameInput.value;
     const gameContainer = document.querySelector(".game-container");
     gameContainer.classList.remove("hidden");
-
-    // test nom
     console.log(`Name: ${name}`);
-    // Start
-    initGame(alert(`Bonne chance ${name} !`));
+    initGame(name);
 });
+
+startBtn.addEventListener("click", (e) => {
+    const name = nameInput.value;
+    if(!name) return;
+    const gameContainer = document.querySelector(".game-container");
+    gameContainer.classList.remove("hidden");
+    console.log(`Name: ${name}`);
+    initGame(name);
+});
+
 
 function initGame(name) {
 
