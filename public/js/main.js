@@ -1,9 +1,8 @@
-
-const nameInput = document.querySelector("input");
+let nameInput = document.querySelector("input");
 nameInput.placeholder = "Entre ton pseudo";
 
 
-const startBtn = document.querySelector("button");
+let startBtn = document.querySelector("button");
 startBtn.innerText = "Start";
 startBtn.disabled = true;
 
@@ -53,7 +52,7 @@ timeTag = document.querySelector(".time b"),
 flipsTag = document.querySelector(".flips b"),
 refreshBtn = document.querySelector(".details button");
 
-let maxTime = 40;
+let maxTime = 50;
 let timeLeft = maxTime;
 let flips = 0;
 let matchedCard = 0;
@@ -84,8 +83,8 @@ let clickCount = 0;
 function flipCard({target: clickedCard}) {
     clickCount++;
     if (clickCount === 3) {
-        cardOne.style.border = "2px solid red";
-        cardTwo.style.border = "2px solid red";
+        // cardOne.style.border = "2px solid red";
+        // cardTwo.style.border = "2px solid red";
     }
     if(!isPlaying) {
         isPlaying = true;
@@ -130,7 +129,7 @@ function matchCards(img1, img2) {
         cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";
         return disableDeck = false;
-    }
+}
 
     setTimeout(() => {
         cardOne.classList.add("shake");

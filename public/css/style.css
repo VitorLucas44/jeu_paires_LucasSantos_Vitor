@@ -12,7 +12,9 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #c81515;
+    background-image: url(/images/wallpaper-mario-fond-rouge-800x445.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
     flex-direction: column;
 }
 .cards, .card, .view{
@@ -82,20 +84,20 @@ body{
     height: calc(100% / 4 - 30px);
     justify-content: space-evenly;
     box-shadow: 0 3px 10px #0000001a;
-  }
-  .details p{
+}
+.details p{
     font-size: 18px;
     height: 17px;
     padding-right: 18px;
     border-right: 1px solid #ccc;
-  }
-  .details p span{
+}
+.details p span{
     margin-left: 8px;
-  }
-  .details p b{
+}
+.details p b{
     font-weight: 500;
-  }
-  .details button{
+}
+.details button{
     cursor: pointer;
     font-size: 14px;
     color: rgb(26, 14, 194);
@@ -141,7 +143,9 @@ h1{
 .match-hint {
     border: 2px solid red;
 }
-
+table{
+    color: white;
+}
 @keyframes shake {
     0%, 100%{
         transform: translateX(0);
